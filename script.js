@@ -8,7 +8,7 @@
    forms still work, but nothing is saved anywhere. See README.md
    for the two-minute deployment steps. */
 const CONFIG = {
-  APPS_SCRIPT_URL: "" // e.g. "https://script.google.com/macros/s/AKfycb.../exec"
+  APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbw0joientnF4UK4u4XTtw8W37SVudB_mPsESnVfYbZsJQSzGcoZnqlg3fX93HWiaBrU/exec"
 };
 
 /* ---------- Data: committees ---------- */
