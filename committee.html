@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Choose Committees — CLEOMUN 2027</title>
+<link rel="icon" href="logo-icon.png">
+<link rel="stylesheet" href="style.css?v=2">
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+
+<div id="transition-overlay">
+  <svg id="scarab-fly" viewBox="0 0 64 64" fill="none"><path d="M32 20c-6 0-10 4-10 10 0 3 1 6 4 8-5 1-8 5-8 10 0 6 6 10 14 10s14-4 14-10c0-5-3-9-8-10 3-2 4-5 4-8 0-6-4-10-10-10z" fill="currentColor"/><path d="M14 24l-8-6 2 8 6-1-2 7 8-2-1 7 7-4v-6l-6-2 2-7-7 2 1-7-7 3z" fill="currentColor"/><path d="M50 24l8-6-2 8-6-1 2 7-8-2 1 7-7-4v-6l6-2-2-7 7 2-1-7 7 3z" fill="currentColor"/></svg>
+</div>
+
+<div id="toast"></div>
+
+<div class="page page-enter">
+  <header class="site-header">
+    <a href="index.html" class="brand" data-nav>
+      <img src="logo-icon.png" alt="CLEOMUN emblem" class="brand-logo">
+      <span>
+        <span class="brand-word">CLEO<b>MUN</b></span><br>
+        <span class="brand-sub">New Delhi &middot; 3–4 Apr 2027</span>
+      </span>
+    </a>
+    <div class="header-right">Step <strong>2</strong> of 4</div>
+  </header>
+
+  <div class="stepper">
+    <div class="step is-done"><div class="step-oval">1</div><div class="step-label">Details</div></div>
+    <div class="step is-active"><div class="step-line"></div><div class="step-oval">2</div><div class="step-label">Committee</div></div>
+    <div class="step"><div class="step-line"></div><div class="step-oval">3</div><div class="step-label">Portfolio</div></div>
+    <div class="step"><div class="step-line"></div><div class="step-oval">4</div><div class="step-label">Payment</div></div>
+  </div>
+
+  <main>
+    <div class="wrap" style="max-width:900px;">
+      <div class="eyebrow">Registration &middot; Committee Selection</div>
+      <h1 class="page-title">Choose Your Council</h1>
+      <p class="page-sub">Tap a committee for your 1st preference (gold), then a different one for your 2nd (blue).</p>
+
+      <form id="committee-form" class="panel panel-enter" novalidate>
+        <div class="committee-grid" id="committee-grid"></div>
+
+        <div class="pref-summary">
+          <span><span class="dot g"></span>1st Preference: <b id="summary-pref1">—</b></span>
+          <span><span class="dot l"></span>2nd Preference: <b id="summary-pref2">—</b></span>
+        </div>
+
+        <div class="actions">
+          <a href="register.html" class="btn btn-ghost" data-nav>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+            Back
+          </a>
+          <button type="submit" class="btn btn-primary" id="continue-btn" disabled>
+            Continue to Portfolio
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer class="site-footer">CLEOMUN &middot; New Delhi &middot; Global Voices, Timeless Legacy.</footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

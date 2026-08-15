@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>School Registration — CLEOMUN 2027</title>
+<link rel="icon" href="logo-icon.png">
+<link rel="stylesheet" href="style.css?v=2">
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<div id="transition-overlay">
+  <svg id="scarab-fly" viewBox="0 0 64 64" fill="none"><path d="M32 20c-6 0-10 4-10 10 0 3 1 6 4 8-5 1-8 5-8 10 0 6 6 10 14 10s14-4 14-10c0-5-3-9-8-10 3-2 4-5 4-8 0-6-4-10-10-10z" fill="currentColor"/><path d="M14 24l-8-6 2 8 6-1-2 7 8-2-1 7 7-4v-6l-6-2 2-7-7 2 1-7-7 3z" fill="currentColor"/><path d="M50 24l8-6-2 8-6-1 2 7-8-2 1 7-7-4v-6l6-2-2-7 7 2-1-7 7 3z" fill="currentColor"/></svg>
+</div>
+
+<div id="toast"></div>
+
+<div class="page page-enter">
+  <header class="site-header">
+    <a href="index.html" class="brand" data-nav>
+      <img src="logo-icon.png" alt="CLEOMUN emblem" class="brand-logo">
+      <span>
+        <span class="brand-word">CLEO<b>MUN</b></span><br>
+        <span class="brand-sub">New Delhi &middot; 3–4 Apr 2027</span>
+      </span>
+    </a>
+    <div class="header-right">Step <strong>1</strong> of 3</div>
+  </header>
+
+  <div class="stepper">
+    <div class="step is-active"><div class="step-oval">1</div><div class="step-label">School Details</div></div>
+    <div class="step"><div class="step-line"></div><div class="step-oval">2</div><div class="step-label">Roster</div></div>
+    <div class="step"><div class="step-line"></div><div class="step-oval">3</div><div class="step-label">Payment</div></div>
+  </div>
+
+  <main>
+    <div class="wrap">
+      <div class="eyebrow">Registration &middot; School Delegation</div>
+      <h1 class="page-title">School &amp; Teacher Details</h1>
+      <p class="page-sub">The teacher in-charge is the point of contact for this delegation's confirmation and logistics.</p>
+
+      <form id="school-details-form" class="panel panel-enter" novalidate>
+        <div class="section-title"><span class="num">1</span> School Details</div>
+
+        <div class="field" id="field-schoolName">
+          <label>School Name <span class="req">*</span></label>
+          <input type="text" id="schoolName" placeholder="Full school name">
+          <div class="field-error">Please enter your school's name.</div>
+        </div>
+
+        <div class="field" id="field-schoolAddress">
+          <label>School Address <span class="req">*</span></label>
+          <textarea id="schoolAddress" placeholder="Full postal address"></textarea>
+          <div class="field-error">Please enter your school's address.</div>
+        </div>
+
+        <div class="section-title" style="margin-top:8px;"><span class="num">2</span> Teacher In-Charge</div>
+
+        <div class="field-row">
+          <div class="field" id="field-teacherName">
+            <label>Teacher In-Charge Name <span class="req">*</span></label>
+            <input type="text" id="teacherName" placeholder="Full name" autocomplete="name">
+            <div class="field-error">Please enter the teacher in-charge's name.</div>
+          </div>
+          <div class="field" id="field-teacherPhone">
+            <label>Teacher In-Charge Contact Number <span class="req">*</span></label>
+            <input type="tel" id="teacherPhone" placeholder="10-digit mobile number" autocomplete="tel">
+            <div class="field-error">Enter a valid 10-digit mobile number.</div>
+          </div>
+        </div>
+
+        <div class="field" id="field-teacherEmail">
+          <label>Teacher In-Charge Email <span class="req">*</span></label>
+          <input type="email" id="teacherEmail" placeholder="you@example.com" autocomplete="email">
+          <div class="field-error">Enter a valid email address.</div>
+        </div>
+
+        <div class="actions">
+          <a href="type.html" class="btn btn-ghost" data-nav>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+            Back
+          </a>
+          <button type="submit" class="btn btn-primary">
+            Continue to Roster
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer class="site-footer">CLEOMUN &middot; New Delhi &middot; Global Voices, Timeless Legacy.</footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

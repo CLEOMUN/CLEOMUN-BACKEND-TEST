@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Delegate Roster — CLEOMUN 2027</title>
+<link rel="icon" href="logo-icon.png">
+<link rel="stylesheet" href="style.css?v=2">
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<div id="transition-overlay">
+  <svg id="scarab-fly" viewBox="0 0 64 64" fill="none"><path d="M32 20c-6 0-10 4-10 10 0 3 1 6 4 8-5 1-8 5-8 10 0 6 6 10 14 10s14-4 14-10c0-5-3-9-8-10 3-2 4-5 4-8 0-6-4-10-10-10z" fill="currentColor"/><path d="M14 24l-8-6 2 8 6-1-2 7 8-2-1 7 7-4v-6l-6-2 2-7-7 2 1-7-7 3z" fill="currentColor"/><path d="M50 24l8-6-2 8-6-1 2 7-8-2 1 7-7-4v-6l6-2-2-7 7 2-1-7 7 3z" fill="currentColor"/></svg>
+</div>
+
+<div id="toast"></div>
+
+<div class="page page-enter">
+  <header class="site-header">
+    <a href="index.html" class="brand" data-nav>
+      <img src="logo-icon.png" alt="CLEOMUN emblem" class="brand-logo">
+      <span>
+        <span class="brand-word">CLEO<b>MUN</b></span><br>
+        <span class="brand-sub">New Delhi &middot; 3–4 Apr 2027</span>
+      </span>
+    </a>
+    <div class="header-right">Step <strong>2</strong> of 3</div>
+  </header>
+
+  <div class="stepper">
+    <div class="step is-done"><div class="step-oval">1</div><div class="step-label">Group Details</div></div>
+    <div class="step is-active"><div class="step-line"></div><div class="step-oval">2</div><div class="step-label">Roster</div></div>
+    <div class="step"><div class="step-line"></div><div class="step-oval">3</div><div class="step-label">Payment</div></div>
+  </div>
+
+  <main>
+    <div class="wrap">
+      <div class="eyebrow">Registration &middot; Group Delegation</div>
+      <h1 class="page-title">Attach Your Delegate Roster</h1>
+      <p class="page-sub">One spreadsheet, every delegate. Committee and portfolio preferences are captured per delegate in the sheet.</p>
+
+      <form id="roster-form" class="panel panel-enter" novalidate data-track="group">
+        <div class="section-title"><span class="num">1</span> Required Columns</div>
+        <p class="roster-note">Kindly attach a spreadsheet (Google Sheet export, .xlsx, or .csv) with the following delegate details:</p>
+        <ul class="roster-list">
+          <li>Name of the delegate</li>
+          <li>Class</li>
+          <li>Email ID</li>
+          <li>Phone number</li>
+          <li>Experience in MUNs</li>
+          <li>Top 3 committee preferences</li>
+          <li>2 portfolio preferences for each preferred committee <span class="roster-note-sub">(Photographer / Journalist / Caricaturist for IPC)</span></li>
+        </ul>
+
+        <div class="section-title" style="margin-top:22px;"><span class="num">2</span> Upload</div>
+
+        <div class="field" id="field-roster">
+          <label>Delegate Roster Spreadsheet <span class="req">*</span></label>
+          <div class="dropzone" id="roster-dropzone">
+            <input type="file" id="roster-file" accept=".xlsx,.xls,.csv,.pdf">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 16V4M12 4l-4 4M12 4l4 4"/><path d="M4 16v3a2 2 0 002 2h12a2 2 0 002-2v-3"/></svg>
+            <div class="dz-title">Drop your spreadsheet here, or click to browse</div>
+            <div class="dz-sub">.XLSX, .CSV, or exported Google Sheet &middot; Max 10MB</div>
+            <div class="dz-file">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              <span class="dz-filename"></span>
+              <button type="button" class="dz-remove">Remove</button>
+            </div>
+          </div>
+          <div class="field-error">Please upload the delegate roster spreadsheet.</div>
+          <div class="field-hint">If sharing a Google Sheet, download it as .xlsx or .csv first — direct links can't be attached here.</div>
+        </div>
+
+        <div class="actions">
+          <a href="group-details.html" class="btn btn-ghost" data-nav>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+            Back
+          </a>
+          <button type="submit" class="btn btn-primary">
+            Continue to Payment
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer class="site-footer">CLEOMUN &middot; New Delhi &middot; Global Voices, Timeless Legacy.</footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
