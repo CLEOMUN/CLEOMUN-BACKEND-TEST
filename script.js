@@ -8,7 +8,7 @@
    forms still work, but nothing is saved anywhere. See README.md
    for the two-minute deployment steps. */
 const CONFIG = {
-  APPS_SCRIPT_URL: "https://script.google.com/macros/s/AKfycbw0joientnF4UK4u4XTtw8W37SVudB_mPsESnVfYbZsJQSzGcoZnqlg3fX93HWiaBrU/exec"
+  APPS_SCRIPT_URL: "" // e.g. "https://script.google.com/macros/s/AKfycb.../exec"
 };
 
 /* ---------- Data: committees ---------- */
@@ -197,22 +197,38 @@ async function waitForUpload(key){
 }
 
 /* Assembles the flat payload the backend expects from whatever track
-   (individual / group / school) the person registered through. */
+   (individual / group / school) the person registered through. Only
+   fields relevant to that track are included, so leftover data from a
+   different track tested earlier in the same browser never leaks in. */
 function buildRegistrationPayload(data, track){
-  return {
+  const base = {
     registrationType: track,
-    fullName: data.fullName, email: data.email, phone: data.phone,
-    classYear: data.classYear, institution: data.institution,
-    priorExperience: data.priorExperience, idFileUrl: data.idFileUrl,
-    committee1: data.committee1, c1p1: data.c1p1, c1p2: data.c1p2,
-    committee2: data.committee2, c2p1: data.c2p1, c2p2: data.c2p2,
-    groupName: data.groupName, groupSize: data.groupSize,
-    leaderName: data.leaderName, leaderEmail: data.leaderEmail, leaderPhone: data.leaderPhone,
-    schoolName: data.schoolName, schoolAddress: data.schoolAddress,
-    teacherName: data.teacherName, teacherEmail: data.teacherEmail, teacherPhone: data.teacherPhone,
-    rosterFileUrl: data.rosterFileUrl,
     paymentFileUrl: data.paymentFileUrl
   };
+  if(track === 'individual'){
+    return Object.assign(base, {
+      fullName: data.fullName, email: data.email, phone: data.phone,
+      classYear: data.classYear, institution: data.institution,
+      priorExperience: data.priorExperience, idFileUrl: data.idFileUrl,
+      committee1: data.committee1, c1p1: data.c1p1, c1p2: data.c1p2,
+      committee2: data.committee2, c2p1: data.c2p1, c2p2: data.c2p2
+    });
+  }
+  if(track === 'group'){
+    return Object.assign(base, {
+      groupName: data.groupName, groupSize: data.groupSize,
+      leaderName: data.leaderName, leaderEmail: data.leaderEmail, leaderPhone: data.leaderPhone,
+      rosterFileUrl: data.rosterFileUrl
+    });
+  }
+  if(track === 'school'){
+    return Object.assign(base, {
+      schoolName: data.schoolName, schoolAddress: data.schoolAddress,
+      teacherName: data.teacherName, teacherEmail: data.teacherEmail, teacherPhone: data.teacherPhone,
+      rosterFileUrl: data.rosterFileUrl
+    });
+  }
+  return base;
 }
 
 /* ---------- particles (rising jewelled dust — gold / lapis / violet) ---------- */
@@ -369,14 +385,17 @@ function initTypePage(){
   if(!individualBtn) return;
 
   individualBtn.addEventListener('click', () => {
+    clearData();
     saveData({ registrationType: 'individual' });
     navigateTo('register.html');
   });
   document.getElementById('type-group').addEventListener('click', () => {
+    clearData();
     saveData({ registrationType: 'group' });
     navigateTo('group-details.html');
   });
   document.getElementById('type-school').addEventListener('click', () => {
+    clearData();
     saveData({ registrationType: 'school' });
     navigateTo('school-details.html');
   });
